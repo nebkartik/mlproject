@@ -1,0 +1,5 @@
+#specifies all the libraries to be installed
+pandas
+numpy
+seaborn
+-e .
