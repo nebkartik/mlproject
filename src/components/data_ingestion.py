@@ -7,6 +7,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 #data class so that we dont need init to initiate variables inside a class
 @dataclass
@@ -42,4 +43,6 @@ if __name__=="__main__":
     obj = DataIngestion()
     train_data,test_data = obj.initiate_data_ingestion()
     datatransforamtion_obj = DataTransformation()
-    datatransforamtion_obj.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,path = datatransforamtion_obj.initiate_data_transformation(train_data,test_data)
+    model_obj = ModelTrainer()
+    model_obj.initiate_model_trainer(train_arr,test_arr)
